@@ -1,35 +1,55 @@
 #include <iostream>
 using namespace std;
 
+// employee struct
 struct employee {
     string name;
     int salary;
 
 };
 
+void printEmployeeData(employee arr[], int size) {
+    cout << "ID Name Salary" << endl;
+
+    for (int i = 1; i <= size; i++) {
+        cout << i << " " << arr[i].name << " " << arr[i].salary;
+
+        if (i < size) cout << endl;
+    }
+
+}
+
+float calcAverageSalary(employee arr[], int size) {
+    int total = 0;
+
+    for (int i = 1; i <= size; i++) {
+        total += arr[i].salary;
+    }
+
+    return total / size;
+}
+// Size of our employee struct.
 const int SIZE = 4;
 
 int main() {
 
-    employee company[SIZE + 1];
+    // init employee struct, with size one greater than "size."
+    // This is due to the employee id's starting with 1.
 
-    company[1].name = "A";
-    company[1].salary= 615;
+    struct employee company[SIZE + 1] = {
+        {"", 0},
+        {"A", 615},
+        {"B", 625},
+        {"C", 635},
+        {"D", 645},
 
-    company[2].name = "B";
-    company[2].salary= 625;
+    };
+    
+    printEmployeeData(company, SIZE);
 
-    company[3].name = "C";
-    company[3].salary= 635;
+    cout << endl << calcAverageSalary(company, SIZE) << endl;
 
-    company[4].name = "D";
-    company[4].salary = 645;
+   
 
-    cout << "ID Name Salary" << endl;
 
-    for (int i = 1; i <= SIZE; i++) {
-        cout << i << " " << company[i].name << " " << company[i].salary;
-
-        if (i < SIZE) cout << endl;
-    }
 }
