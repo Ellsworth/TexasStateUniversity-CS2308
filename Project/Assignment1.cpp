@@ -39,6 +39,7 @@ int main() {
 
     while (userInput != 0) {
         printFilesystem(files, SIZE);
+        promptUser(files, SIZE);
 
     }
 
@@ -75,7 +76,7 @@ void printFilesystem(filesystem files[], int size) {
 
 int promptUser(filesystem files[], int size) {
 
-    int userInput, userNewFileSize;
+    int userInput = -1, userNewFileSize = 0;
 
     cout << "Enter the folder number (0 to quit):" << endl;
     cin >> userInput;
@@ -87,7 +88,7 @@ int promptUser(filesystem files[], int size) {
         files[userInput].fileSize += userNewFileSize;
         files[userInput].fileCount++;
     }
-    else (userInput < 0 || userInput >= SIZE) {
+    else (userInput < 0 || userInput >= SIZE); {
         cout << "Invalid folder number" << endl;
     }
 
