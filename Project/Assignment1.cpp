@@ -81,7 +81,7 @@ int promptUser(filesystem files[], int size) {
     cout << "Enter the folder number (0 to quit):" << endl;
     cin >> userInput;
 
-    if (userInput > 0 && userInput < SIZE) {
+    if (userInput > 0 && userInput < size) {
         cout << "Enter the file size:" << endl;
         cin >> userNewFileSize;
 
