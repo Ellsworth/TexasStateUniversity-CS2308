@@ -90,7 +90,7 @@ int promptUser(filesystem files[], int size) {
 
     }
     
-    if (userInput < 0 || userInput > size) {
+    if (userInput < 0 || userInput > size - 1) {
         cout << "Invalid folder number" << endl;
 
     }
