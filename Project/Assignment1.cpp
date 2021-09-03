@@ -35,7 +35,6 @@ int main() {
         {"Miscellaneous", 1, 2.23} };
     
     int userInput = -1;
-    float userNewFileSize = 0;
 
     while (userInput != 0) {
         printFilesystem(files, SIZE);
