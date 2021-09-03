@@ -39,7 +39,7 @@ int main() {
 
     while (userInput != 0) {
         printFilesystem(files, SIZE);
-        promptUser(files, SIZE);
+        userInput = promptUser(files, SIZE);
 
     }
 
@@ -88,7 +88,7 @@ int promptUser(filesystem files[], int size) {
         files[userInput].fileSize += userNewFileSize;
         files[userInput].fileCount++;
     }
-    else (userInput < 0 || userInput >= SIZE); {
+    else if (userInput < 0 || userInput >= SIZE) {
         cout << "Invalid folder number" << endl;
     }
 
@@ -96,6 +96,8 @@ int promptUser(filesystem files[], int size) {
         cout << "Total size of all folders: " << getTotalSize(files, SIZE) << endl;
         cout << "Folder with the largest average file size: " << files[findLargestAvgFile(files, SIZE)].name << endl;
     }
+
+    return userInput;
 
 }
 
