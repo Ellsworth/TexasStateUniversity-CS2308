@@ -21,7 +21,7 @@ float getTotalSize(filesystem[], int);
 
 
 int main() {
-    struct filesystem files[] = {
+    filesystem files[] = {
         {"", 0, 0},
         {"Documents", 5, 12.38},
         {"Downloads", 11, 17.22},
