@@ -87,14 +87,19 @@ int promptUser(filesystem files[], int size) {
 
         files[userInput].fileSize += userNewFileSize;
         files[userInput].fileCount++;
+
     }
-    else if (userInput < 0 || userInput >= SIZE) {
+    
+    if (userInput < 0 || userInput > size) {
         cout << "Invalid folder number" << endl;
+
     }
 
     if (userInput == 0) {
+        
         cout << "Total size of all folders: " << getTotalSize(files, SIZE) << endl;
         cout << "Folder with the largest average file size: " << files[findLargestAvgFile(files, SIZE)].name << endl;
+
     }
 
     return userInput;
