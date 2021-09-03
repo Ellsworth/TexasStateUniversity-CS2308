@@ -8,7 +8,7 @@ const int SIZE = 10 + 1;
 struct filesystem {
     string name;
     int fileCount;
-    float fileSize;
+    double fileSize;
 };
 
 void printFilesystem(filesystem[], int);
