@@ -13,6 +13,8 @@ struct filesystem {
 
 void printFilesystem(filesystem[], int);
 
+int promptUser(filesystem[], int);
+
 int findLargestAvgFile(filesystem[], int);
 
 float getTotalSize(filesystem[], int);
@@ -38,24 +40,9 @@ int main() {
     while (userInput != 0) {
         printFilesystem(files, SIZE);
 
-        cout << "Enter the folder number (0 to quit):" << endl;
-        cin >> userInput;
-
-        if (userInput != 0) {
-            cout << "Enter the file size:" << endl;
-            cin >> userNewFileSize;
-
-            files[userInput].fileSize += userNewFileSize;
-            files[userInput].fileCount++;
-        }
-
-
-
-
     }
 
-    cout << "Total size of all folders: " << getTotalSize(files, SIZE) << endl;
-    cout << "Folder with the largest average file size: " << files[findLargestAvgFile(files, SIZE)].name << endl;
+
 
 }
 
@@ -83,6 +70,31 @@ void printFilesystem(filesystem files[], int size) {
 
     return;
 
+
+}
+
+int promptUser(filesystem files[], int size) {
+
+    int userInput, userNewFileSize;
+
+    cout << "Enter the folder number (0 to quit):" << endl;
+    cin >> userInput;
+
+    if (userInput > 0 && userInput < SIZE) {
+        cout << "Enter the file size:" << endl;
+        cin >> userNewFileSize;
+
+        files[userInput].fileSize += userNewFileSize;
+        files[userInput].fileCount++;
+    }
+    else (userInput < 0 || userInput >= SIZE) {
+        cout << "Invalid folder number" << endl;
+    }
+
+    if (userInput == 0) {
+        cout << "Total size of all folders: " << getTotalSize(files, SIZE) << endl;
+        cout << "Folder with the largest average file size: " << files[findLargestAvgFile(files, SIZE)].name << endl;
+    }
 
 }
 
