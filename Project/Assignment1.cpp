@@ -48,7 +48,7 @@ int main() {
 
 void printFilesystem(filesystem files[], int size) {
 
-    cout << left << setprecision(2)
+    cout << left << showpoint << fixed << setprecision(2)
         << setw(3) << "N"
         << setw(15) << "Name"
         << setw(10) << "Num files"
