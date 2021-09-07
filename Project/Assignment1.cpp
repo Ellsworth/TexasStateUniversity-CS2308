@@ -76,7 +76,7 @@ void printFilesystem(filesystem files[], int size) {
 int promptUser(filesystem files[], int size) {
 
     int userInput = -1;
-    float userNewFileSize = 0;
+    double userNewFileSize = 0;
 
     cout << "Enter the folder number (0 to quit):" << endl;
     cin >> userInput;
