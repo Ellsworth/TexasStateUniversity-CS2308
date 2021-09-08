@@ -63,7 +63,6 @@ void printFilesystem(filesystem files[], int size) {
             << setw(10) << files[i].fileSize
             << endl;
 
-        //cout << setw(10) << files[i].fileCount;
     }
 
 
