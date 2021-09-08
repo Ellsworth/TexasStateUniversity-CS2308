@@ -42,8 +42,6 @@ int main() {
 
     }
 
-
-
 }
 
 void printFilesystem(filesystem files[], int size) {
@@ -65,10 +63,7 @@ void printFilesystem(filesystem files[], int size) {
 
     }
 
-
-
     return;
-
 
 }
 
