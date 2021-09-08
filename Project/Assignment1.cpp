@@ -1,3 +1,5 @@
+// Erich Scott Ellsworth - wqi7
+
 #include <iostream>
 #include <iomanip>
 
@@ -67,6 +69,7 @@ void printFilesystem(filesystem files[], int size) {
 
 }
 
+// Ask user for input, if valid, increase folder size and increment file count.
 int promptUser(filesystem files[], int size) {
 
     int userInput = -1;
@@ -74,7 +77,8 @@ int promptUser(filesystem files[], int size) {
 
     cout << "Enter the folder number (0 to quit):" << endl;
     cin >> userInput;
-
+    
+    // If user input is valid.
     if (userInput > 0 && userInput < size) {
         cout << "Enter the file size:" << endl;
         cin >> userNewFileSize;
@@ -83,16 +87,20 @@ int promptUser(filesystem files[], int size) {
         files[userInput].fileCount++;
 
     }
-    
+
+    // If user input is less than 0 or bigger than size, then it is invalid.
     if (userInput < 0 || userInput > size - 1) {
         cout << "Invalid folder number" << endl;
 
     }
-
+    
+    // If user input is zero, print the filesystem stats.
     if (userInput == 0) {
         
-        cout << "Total size of all folders: " << getTotalSize(files, SIZE) << endl;
-        cout << "Folder with the largest average file size: " << files[findLargestAvgFile(files, SIZE)].name << endl;
+        cout << "Total size of all folders: " 
+            << getTotalSize(files, SIZE) << endl;
+        cout << "Folder with the largest average file size: " 
+            << files[findLargestAvgFile(files, SIZE)].name << endl;
 
     }
 
@@ -100,12 +108,14 @@ int promptUser(filesystem files[], int size) {
 
 }
 
+// Returns the largest index of a filesystem array. 
 int findLargestAvgFile(filesystem files[], int size) {
 
     int max = 1;
 
     for (int i = 1; i < size; i++) {
-        if ((files[i].fileSize / files[i].fileCount) > (files[max].fileSize / files[max].fileCount)) {
+        if ((files[i].fileSize / files[i].fileCount) > 
+            (files[max].fileSize / files[max].fileCount)) {
             max = i;
         }
 
@@ -115,6 +125,7 @@ int findLargestAvgFile(filesystem files[], int size) {
 
 }
 
+// Gets the total size of a filesystem array.
 float getTotalSize(filesystem files[], int size) {
 
     float total = 0;
