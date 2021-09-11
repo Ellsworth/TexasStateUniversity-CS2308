@@ -68,17 +68,20 @@ void printFilesystem(filesystem files[], int size) {
 
     cout << left << showpoint << fixed << setprecision(2);
     
-    cout << setw(3) << "N";
-    cout << setw(15) << "Name";
-    cout << setw(10) << "Num files";
-    cout << setw(10) << "Size(Mb)" << endl;
+    cout << left
+        << setw(3) << "N"
+        << setw(15) << "Name"
+        << setw(10) << "Num files"
+        << setw(10) << "Size(Mb)"
+        << endl;
+
 
     for (int i = 1; i < size; i++) {
 
-        cout << setw(3) << i;
-        cout << setw(15) << files[i].name;
-        cout << setw(10) << files[i].fileCount;
-        cout << setw(10) << files[i].fileSize << endl;
+        cout << setw(3) << i
+            << setw(15) << files[i].name
+            << setw(10) << files[i].fileCount
+            << setw(10) << files[i].fileSize << endl;
 
     }
 
