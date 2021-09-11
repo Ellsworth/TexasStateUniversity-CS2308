@@ -66,20 +66,19 @@ int main() {
 
 void printFilesystem(filesystem files[], int size) {
 
-    cout << left << showpoint << fixed << setprecision(2)
-        << setw(3) << "N"
-        << setw(15) << "Name"
-        << setw(10) << "Num files"
-        << setw(10) << "Size(Mb)"
-        << endl;
+    cout << left << showpoint << fixed << setprecision(2);
+    
+    cout << setw(3) << "N";
+    cout << setw(15) << "Name";
+    cout << setw(10) << "Num files";
+    cout << setw(10) << "Size(Mb)" << endl;
 
     for (int i = 1; i < size; i++) {
 
-        cout << setw(3) << i
-            << setw(15) << files[i].name
-            << setw(10) << files[i].fileCount
-            << setw(10) << files[i].fileSize
-            << endl;
+        cout << setw(3) << i;
+        cout << setw(15) << files[i].name;
+        cout << setw(10) << files[i].fileCount;
+        cout << setw(10) << files[i].fileSize << endl;
 
     }
 
@@ -122,13 +121,14 @@ int promptUser(filesystem files[], int size) {
 
     }
     
-    // If user input is zero, print the filesystem stats.
+    // If user input is zero, print the filesystem stats before we exit in main.
     if (userInput == 0) {
         
-        cout << "Total size of all folders: " 
-            << getTotalSize(files, SIZE) << endl;
-        cout << "Folder with the largest average file size: " 
-            << files[findLargestAvgFile(files, SIZE)].name << endl;
+        cout << "Total size of all folders: ";
+        cout << getTotalSize(files, SIZE) << endl;
+
+        cout << "Folder with the largest average file size: ";
+        cout << files[findLargestAvgFile(files, SIZE)].name << endl;
 
     }
 
@@ -146,12 +146,18 @@ int promptUser(filesystem files[], int size) {
 //***********************************************************
 int findLargestAvgFile(filesystem files[], int size) {
 
-    int max = 1;
+    int max = 1, avg_size = 0, avg_size_max = 0;
 
     for (int i = 1; i < size; i++) {
-        if ((files[i].fileSize / files[i].fileCount) > 
-            (files[max].fileSize / files[max].fileCount)) {
+
+        // calculute the avg size for i
+        avg_size = (files[i].fileSize / files[i].fileCount);
+        
+        if (avg_size > avg_size_max) {
             max = i;
+
+            // calculate the avg size for the max.
+            avg_size_max = avg_size;
         }
 
     }
