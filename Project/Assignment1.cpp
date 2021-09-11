@@ -56,6 +56,14 @@ int main() {
 
 }
 
+//***********************************************************
+// printFilesystem: Prints folders of filesystem. Displays folder ID, name, 
+// filecount, and size.
+// 
+// files[] - array of "filesystem" type struct.
+// size - int of the size of the files[] array.
+//***********************************************************
+
 void printFilesystem(filesystem files[], int size) {
 
     cout << left << showpoint << fixed << setprecision(2)
@@ -79,7 +87,17 @@ void printFilesystem(filesystem files[], int size) {
 
 }
 
-// Ask user for input, if valid, increase folder size and increment file count.
+//***********************************************************
+// function name: Ask user for input, if valid, increase folder size and 
+// increment file count. When user quits (option 0), the give total size
+// and folder with largest avg. file size
+//
+// files[] - array of "filesystem" type struct.
+// size - int of the size of the files[] array.
+//
+// returns: int - User's menu choice. Used for knowing when to stop looping in
+// the main function.
+//***********************************************************
 int promptUser(filesystem files[], int size) {
 
     int userInput = -1;
@@ -117,8 +135,15 @@ int promptUser(filesystem files[], int size) {
     return userInput;
 
 }
-
-// Returns the largest index of a filesystem array. 
+//***********************************************************
+// findLargestAvgFile: Returns the index of the folder with the largest avg.
+// file size 
+//
+// files[] - array of "filesystem" type struct.
+// size - int of the size of the files[] array.
+// 
+// returns: index of the filesystem array
+//***********************************************************
 int findLargestAvgFile(filesystem files[], int size) {
 
     int max = 1;
@@ -135,7 +160,15 @@ int findLargestAvgFile(filesystem files[], int size) {
 
 }
 
-// Gets the total size of a filesystem array.
+//***********************************************************
+// getTotalSize: Finds the total size of all of the folders in the array
+// of filesystems
+//
+// files[] - array of "filesystem" type struct.
+// size - int of the size of the files[] array.
+// 
+// returns: total size of all of the folders of the filesystem.
+//***********************************************************
 float getTotalSize(filesystem files[], int size) {
 
     float total = 0;
