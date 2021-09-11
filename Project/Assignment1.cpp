@@ -1,4 +1,14 @@
-// Erich Scott Ellsworth - wqi7
+// File Name: Assignment1.cpp
+// 
+// Author: Erich Scott Ellsworth, wqi7
+// Collaborators: N/A
+// Date: 09/10/2021
+// Assignment Number: 1
+// CS 2308 Fall 2021
+// 
+// This program simulates a basic computer filesystem. It utilizes an array
+// of structs to keep track of filecount and filesizings of a fictional
+// filesystem.
 
 #include <iostream>
 #include <iomanip>
