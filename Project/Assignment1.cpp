@@ -1,4 +1,14 @@
-// Erich Scott Ellsworth - wqi7
+// File Name: Assignment1.cpp
+// 
+// Author: Erich Scott Ellsworth, wqi7
+// Collaborators: N/A
+// Date: 09/10/2021
+// Assignment Number: 1
+// CS 2308 Fall 2021
+// 
+// This program simulates a basic computer filesystem. It utilizes an array
+// of structs to keep track of filecount and filesizings of a fictional
+// filesystem.
 
 #include <iostream>
 #include <iomanip>
@@ -46,22 +56,32 @@ int main() {
 
 }
 
+//***********************************************************
+// printFilesystem: Prints folders of filesystem. Displays folder ID, name, 
+// filecount, and size.
+// 
+// files[] - array of "filesystem" type struct.
+// size - int of the size of the files[] array.
+//***********************************************************
+
 void printFilesystem(filesystem files[], int size) {
 
-    cout << left << showpoint << fixed << setprecision(2)
+    cout << left << showpoint << fixed << setprecision(2);
+    
+    cout << left
         << setw(3) << "N"
         << setw(15) << "Name"
         << setw(10) << "Num files"
         << setw(10) << "Size(Mb)"
         << endl;
 
+
     for (int i = 1; i < size; i++) {
 
         cout << setw(3) << i
             << setw(15) << files[i].name
             << setw(10) << files[i].fileCount
-            << setw(10) << files[i].fileSize
-            << endl;
+            << setw(10) << files[i].fileSize << endl;
 
     }
 
@@ -69,7 +89,17 @@ void printFilesystem(filesystem files[], int size) {
 
 }
 
-// Ask user for input, if valid, increase folder size and increment file count.
+//***********************************************************
+// function name: Ask user for input, if valid, increase folder size and 
+// increment file count. When user quits (option 0), the give total size
+// and folder with largest avg. file size
+//
+// files[] - array of "filesystem" type struct.
+// size - int of the size of the files[] array.
+//
+// returns: int - User's menu choice. Used for knowing when to stop looping in
+// the main function.
+//***********************************************************
 int promptUser(filesystem files[], int size) {
 
     int userInput = -1;
@@ -94,29 +124,43 @@ int promptUser(filesystem files[], int size) {
 
     }
     
-    // If user input is zero, print the filesystem stats.
+    // If user input is zero, print the filesystem stats before we exit in main.
     if (userInput == 0) {
         
-        cout << "Total size of all folders: " 
-            << getTotalSize(files, SIZE) << endl;
-        cout << "Folder with the largest average file size: " 
-            << files[findLargestAvgFile(files, SIZE)].name << endl;
+        cout << "Total size of all folders: ";
+        cout << getTotalSize(files, SIZE) << endl;
+
+        cout << "Folder with the largest average file size: ";
+        cout << files[findLargestAvgFile(files, SIZE)].name << endl;
 
     }
 
     return userInput;
 
 }
-
-// Returns the largest index of a filesystem array. 
+//***********************************************************
+// findLargestAvgFile: Returns the index of the folder with the largest avg.
+// file size 
+//
+// files[] - array of "filesystem" type struct.
+// size - int of the size of the files[] array.
+// 
+// returns: index of the filesystem array
+//***********************************************************
 int findLargestAvgFile(filesystem files[], int size) {
 
-    int max = 1;
+    int max = 1, avg_size = 0, avg_size_max = 0;
 
     for (int i = 1; i < size; i++) {
-        if ((files[i].fileSize / files[i].fileCount) > 
-            (files[max].fileSize / files[max].fileCount)) {
+
+        // calculute the avg size for i
+        avg_size = (files[i].fileSize / files[i].fileCount);
+        
+        if (avg_size > avg_size_max) {
             max = i;
+
+            // calculate the avg size for the max.
+            avg_size_max = avg_size;
         }
 
     }
@@ -125,7 +169,15 @@ int findLargestAvgFile(filesystem files[], int size) {
 
 }
 
-// Gets the total size of a filesystem array.
+//***********************************************************
+// getTotalSize: Finds the total size of all of the folders in the array
+// of filesystems
+//
+// files[] - array of "filesystem" type struct.
+// size - int of the size of the files[] array.
+// 
+// returns: total size of all of the folders of the filesystem.
+//***********************************************************
 float getTotalSize(filesystem files[], int size) {
 
     float total = 0;
