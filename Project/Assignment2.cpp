@@ -109,3 +109,12 @@ void displayMovies(Movie movies[], int SIZE) {
 
     }
 }
+void swapMovie(int x, int y, Movie movies[]) {
+
+    Movie buffer = movies[x]; // temp storage
+
+    movies[x] = movies[y];
+    movies[y] = buffer;
+
+    return;
+}
