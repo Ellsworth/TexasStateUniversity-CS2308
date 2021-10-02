@@ -37,11 +37,26 @@ int main() {
         displayMenu();
 
         cin >> userInput;
+
+            
+        // When userInput is invalid, print valid options and reprompt.
+        while (userInput < 1 || userInput > 5) {
+            
+            cout << "Please enter 1, 2, 3, 4, or 5:" << endl;
+            cin >> userInput;
+        }
+
+
+        switch (userInput) {
+            case 1:
+                displayMovies(movies, size);
+                break;
+            case 5:
+                cout << "Exiting the program..." << endl;
+                break;
+
+        }
     }
-
-
-    displayMovies(movies, size);
-
 
 
     in.close();
