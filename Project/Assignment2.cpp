@@ -29,6 +29,8 @@ int main() {
     Movie movies[100];
     int size = 0;
 
+    readMovies(in, movies, size);
+
     int userInput = 5;
 
     while (userInput != 5) {
@@ -37,13 +39,9 @@ int main() {
         cin >> userInput;
     }
 
-    readMovies(in, movies, size);
 
-    for (int i = 0; i < size; i++) {
-        cout << i << " " << movies[i].id << " " << movies[i].name << endl;
-    }
+    displayMovies(movies, size);
 
-    cout << "Database entries: " << size << endl;
 
 
     in.close();
@@ -75,6 +73,24 @@ void readMovies(ifstream& in, Movie movies[], int& size) {
 
     }
 
+}
 
+void displayMovies(Movie movies[], int SIZE) {
+    cout << left << showpoint << setprecision(2)
+         << setw(3) << "ID"
+         << setw(26) << "Name"
+         << setw(12) << "Date"
+         << "Rating"
+         << endl;
 
+    for (int i = 0; i < SIZE; i++) {
+
+        cout << setw(3) << movies[i].id;
+        cout << setw(26) << movies[i].name;
+        cout << setw(12) << movies[i].releaseDate;
+        cout << setw(12) << movies[i].rating;
+
+        cout << endl;
+
+    }
 }
