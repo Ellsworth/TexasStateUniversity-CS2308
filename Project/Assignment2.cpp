@@ -245,3 +245,17 @@ void findMovieByID(Movie movies[], int size) {
     }
 
 }
+
+void sortById(Movie movies[], const int SIZE) {
+    for (int i = 0; i < SIZE; i++) {
+
+        for (int j = 0; j < SIZE - 1; j++) {
+
+            if (movies[j].id > movies[j + 1].id) {
+                swapMovie(j, j + 1, movies);
+            }
+
+        }
+
+    }
+}
