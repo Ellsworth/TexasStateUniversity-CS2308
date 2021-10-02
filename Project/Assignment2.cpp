@@ -20,6 +20,8 @@ int linearSearchByName(Movie movies[], int SIZE, string targetName);
 
 // Custom constructors.
 void displayMenu();
+int dateToEpoch(string input);
+void swapMovie(int x, int y, Movie movies[]);
 
 int main() {
 
