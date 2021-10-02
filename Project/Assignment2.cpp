@@ -188,7 +188,7 @@ int linearSearchByName(Movie movies[], int SIZE, string targetName) {
 void searchMovieByName(Movie movies[], int size) {
 
     string targetName;
-    int size, index;
+    int index;
     
     cin.ignore();
     cout << "Please enter a movie name:" << endl;
