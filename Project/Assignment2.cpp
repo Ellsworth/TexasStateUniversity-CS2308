@@ -109,6 +109,33 @@ void displayMovies(Movie movies[], int SIZE) {
 
     }
 }
+
+void sortByDateRating(Movie movies[], int SIZE) {
+
+
+    for (int j = 0; j < SIZE; j++) {
+
+        for (int i = 0; i < SIZE - 1; i++) {
+            int first = dateToEpoch(movies[i].releaseDate);
+            int second = dateToEpoch(movies[i + 1].releaseDate);
+
+            if (first > second) swapMovie(i, i + 1, movies);
+
+            if (first == second) { // if the dates are the same, look at the rating
+
+                if (movies[i].rating > movies[i + 1].rating) {
+                    swapMovie(i, i + 1, movies);
+                }
+            }
+
+        }
+
+    }
+    
+    return;
+
+}
+
 int dateToEpoch(string input) {
 
     int year = stoi(input.substr(0, 4));
