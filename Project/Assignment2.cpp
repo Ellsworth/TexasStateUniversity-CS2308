@@ -109,6 +109,18 @@ void displayMovies(Movie movies[], int SIZE) {
 
     }
 }
+int dateToEpoch(string input) {
+
+    int year = stoi(input.substr(0, 4));
+    int month = stoi(input.substr(5, 7));
+    int day = stoi(input.substr(8, 10));
+
+    int epoch = (year * 365) + (month * 31) + day;
+
+    return epoch;
+
+}
+
 void swapMovie(int x, int y, Movie movies[]) {
 
     Movie buffer = movies[x]; // temp storage
