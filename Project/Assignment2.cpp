@@ -31,7 +31,7 @@ int main() {
 
     readMovies(in, movies, size);
 
-    int userInput = 5;
+    int userInput = -1;
 
     while (userInput != 5) {
         displayMenu();
