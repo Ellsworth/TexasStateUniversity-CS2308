@@ -23,6 +23,7 @@ void displayMenu();
 int dateToEpoch(string input);
 void swapMovie(int x, int y, Movie movies[]);
 void searchMovieByName(Movie movies[], int size);
+void findMovieByID(Movie movies[], int size);
 
 int main() {
 
@@ -64,6 +65,7 @@ int main() {
                 break;
 
             case 4:
+                findMovieByID(movies, size);
                 break;
 
             case 5:
@@ -204,4 +206,42 @@ void searchMovieByName(Movie movies[], int size) {
         cout << movies[index].releaseDate << endl;
 
     }
+}
+
+void findMovieByID(Movie movies[], int size) {
+
+    int targetIndex = -1, targetID = 0;
+
+    cout << "Please enter a movie id:" << endl;
+    cin >> targetID;
+
+    for (int i = 0; i < size; i++) {
+
+        if (movies[i].id == targetID) {
+            targetIndex = i;
+        }
+    
+    }
+
+    if (targetIndex != -1) {
+
+        cout << left << showpoint << setprecision(2)
+            << setw(3) << "ID"
+            << setw(26) << "Name"
+            << setw(12) << "Date"
+            << "Rating"
+            << endl;
+        
+        cout << left << showpoint << setprecision(2)
+            << setw(3) << movies[targetIndex].id
+            << setw(26) << movies[targetIndex].name
+            << setw(12) << movies[targetIndex].releaseDate
+            << movies[targetIndex].rating
+            << endl;
+        
+    }
+    if (targetIndex == -1) {
+        cout << "No movie found with id: " << targetID << endl;
+    }
+
 }
