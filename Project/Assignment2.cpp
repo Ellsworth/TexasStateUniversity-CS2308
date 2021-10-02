@@ -103,7 +103,7 @@ void displayMovies(Movie movies[], int SIZE) {
         cout << setw(3) << movies[i].id;
         cout << setw(26) << movies[i].name;
         cout << setw(12) << movies[i].releaseDate;
-        cout << setw(12) << movies[i].rating;
+        cout << movies[i].rating;
 
         cout << endl;
 
