@@ -22,6 +22,7 @@ int linearSearchByName(Movie movies[], int SIZE, string targetName);
 void displayMenu();
 int dateToEpoch(string input);
 void swapMovie(int x, int y, Movie movies[]);
+void searchMovieByName(Movie movies[], int size);
 
 int main() {
 
@@ -59,6 +60,7 @@ int main() {
                 break;
 
             case 3:
+                searchMovieByName(movies, size);
                 break;
 
             case 4:
@@ -169,4 +171,37 @@ void swapMovie(int x, int y, Movie movies[]) {
     movies[y] = buffer;
 
     return;
+}
+
+int linearSearchByName(Movie movies[], int SIZE, string targetName) {
+
+    int targetIndex = -1;
+
+    for (int i = 0; i < SIZE; i++) {
+        if (movies[i].name == targetName) targetIndex = i;
+    }
+
+    return targetIndex;
+
+}
+
+void searchMovieByName(Movie movies[], int size) {
+
+    string targetName;
+    int size, index;
+    
+    cin.ignore();
+    cout << "Please enter a movie name:" << endl;
+    getline(cin, targetName);
+    index = linearSearchByName(movies, size, targetName);
+
+    if (index == -1) {
+        cout << "No movie found with name: " << targetName << endl;
+    }
+    else {
+
+        cout << "Release date of '" << targetName << "' is ";
+        cout << movies[index].releaseDate << endl;
+
+    }
 }
