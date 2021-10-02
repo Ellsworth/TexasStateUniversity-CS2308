@@ -39,6 +39,12 @@ int main() {
 
     readMovies(in, movies, size);
 
+    for (int i = 0; i < size; i++) {
+        cout << i << " " << movies[i].id << " " << movies[i].name << endl;
+    }
+
+    cout << "Database entries: " << size << endl;
+
 
     in.close();
 }
@@ -64,14 +70,16 @@ void readMovies(ifstream& in, Movie movies[], int& size) {
     // RATING
     // BLANK
 
-    int id;
-    string name, date;
-    double rating; 
+    size = 0;
 
-    while (in >> id) {
+    while (in >> movies[size].id) {
         in >> ws;       // skips the newline after the number in the file
-        getline(in, name);
-        cout << id << " " << name << endl;  
+
+        getline(in, movies[size].name);
+        in >> movies[size].releaeDate;
+        in >> movies[size].rating;
+
+        size++;
 
 
     }
