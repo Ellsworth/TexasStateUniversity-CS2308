@@ -128,7 +128,7 @@ void sortByDateRating(Movie movies[], int SIZE) {
 
             if (first == second) { // if the dates are the same, look at the rating
 
-                if (movies[i].rating > movies[i + 1].rating) {
+                if (movies[i].rating < movies[i + 1].rating) {
                     swapMovie(i, i + 1, movies);
                 }
             }
