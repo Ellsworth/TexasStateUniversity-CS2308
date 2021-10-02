@@ -7,7 +7,7 @@ using namespace std;
 
 struct Movie {
     int id;
-    string name, releaeDate;
+    string name, releaseDate;
     double rating;
 };
 
@@ -67,7 +67,7 @@ void readMovies(ifstream& in, Movie movies[], int& size) {
         in >> ws;       // skips the newline after the number in the file
 
         getline(in, movies[size].name);
-        in >> movies[size].releaeDate;
+        in >> movies[size].releaseDate;
         in >> movies[size].rating;
 
         size++;
