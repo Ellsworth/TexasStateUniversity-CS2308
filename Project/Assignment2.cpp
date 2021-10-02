@@ -61,15 +61,6 @@ void displayMenu() {
 
 void readMovies(ifstream& in, Movie movies[], int& size) {
 
-  
-
-    // Movie file format
-    // ID
-    // NAME
-    // DATE
-    // RATING
-    // BLANK
-
     size = 0;
 
     while (in >> movies[size].id) {
