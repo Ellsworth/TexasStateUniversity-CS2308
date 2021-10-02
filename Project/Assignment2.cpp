@@ -55,7 +55,15 @@ int main() {
                 break;
             case 2:
                 sortByDateRating(movies, size);
+                displayMovies(movies, size);
                 break;
+
+            case 3:
+                break;
+
+            case 4:
+                break;
+
             case 5:
                 cout << "Exiting the program..." << endl;
                 break;
