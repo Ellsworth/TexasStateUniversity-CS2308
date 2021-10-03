@@ -1,3 +1,14 @@
+// File Name: Assignment2.cpp
+// 
+// Author: Erich Scott Ellsworth, wqi7
+// Collaborators: N/A
+// Date: 10/1/2021
+// Assignment Number: 2
+// CS 2308 Fall 2021
+// 
+// This program allows the user to view a movie database. The user may choose
+// how the list is sorted and search for a specific item. 
+
 #include <iostream>
 #include <iomanip>
 #include <fstream>
