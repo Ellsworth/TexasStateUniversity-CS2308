@@ -53,6 +53,7 @@ int main() {
 
         switch (userInput) {
             case 1:
+                sortById(movies, size);
                 displayMovies(movies, size);
                 break;
             case 2:
