@@ -91,6 +91,10 @@ int main() {
     in.close();
 }
 
+//***********************************************************
+// displayMenu: Prints the menu for the program.
+//***********************************************************
+
 void displayMenu() {
     cout << "\nMenu\n"
          << "1. Display movies sorted by id\n"
@@ -100,6 +104,17 @@ void displayMenu() {
          << "5. Quit the Program\n"
          << "Enter your choice:\n";
 }
+
+//***********************************************************
+// readMovies: Reads a movies.txt file and stores the data into an array of
+// structs.
+//
+// ifstream& in - ifstream. File is read thru this ifstream. Declared in main 
+// Movie movies[] - movies is the array of movie structs. We will fill this with
+//      the data from movies.txt
+// &size - the size of the array. Every time we add an element to movies[],
+//      this int is incremented by one.
+//***********************************************************
 
 void readMovies(ifstream& in, Movie movies[], int& size) {
 
@@ -118,6 +133,13 @@ void readMovies(ifstream& in, Movie movies[], int& size) {
     }
 
 }
+
+//***********************************************************
+// displayMovies: prints the contents of the movies array.
+//
+// Movie movies[] - movies is the array of movie structs.
+// SIZE - the size of the array. set by readMovies.
+//***********************************************************
 
 void displayMovies(Movie movies[], int SIZE) {
     cout << left << showpoint << setprecision(2)
@@ -138,6 +160,14 @@ void displayMovies(Movie movies[], int SIZE) {
 
     }
 }
+
+//***********************************************************
+// sortByDateRating: Sorts an array of Movie by Date. If they share the same
+//      date, then the are sorted by rating.
+//
+// Movie movies[] - movies is the array of movie structs.
+// SIZE - the size of the array. set by readMovies.
+//***********************************************************
 
 void sortByDateRating(Movie movies[], int SIZE) {
 
@@ -165,6 +195,15 @@ void sortByDateRating(Movie movies[], int SIZE) {
 
 }
 
+//***********************************************************
+// dateToEpoch: Takes a date string formatted as YYYY/MM/DD and converts it to
+//      an aprox date since the year 0000. A touch hacky, but it works well.
+//
+// string input - a string formatted as YYYY/MM/DD eg. 2011/04/25
+//
+// returns: int. aprox days since year zero. 
+//***********************************************************
+
 int dateToEpoch(string input) {
 
     int year = stoi(input.substr(0, 4));
@@ -177,6 +216,13 @@ int dateToEpoch(string input) {
 
 }
 
+//***********************************************************
+// swapMovie: swaps two entries of an array of Movie
+//
+// int x - index of the 1st entry to swap
+// int y - index of the 2nd entry to swap
+//***********************************************************
+
 void swapMovie(int x, int y, Movie movies[]) {
 
     Movie buffer = movies[x]; // temp storage
@@ -186,6 +232,16 @@ void swapMovie(int x, int y, Movie movies[]) {
 
     return;
 }
+
+//***********************************************************
+// linearSearchByName: Finds the index of the movie with given name.
+//
+// Movie movies[] - movies is the array of movie structs.
+// int SIZE - the size of the array. set by readMovies.
+// string targetname - the name of the movie that is to be searched.
+//
+// returns: int. index of the array with given name. returns -1 if no result.
+//***********************************************************
 
 int linearSearchByName(Movie movies[], int SIZE, string targetName) {
 
@@ -198,6 +254,14 @@ int linearSearchByName(Movie movies[], int SIZE, string targetName) {
     return targetIndex;
 
 }
+
+//***********************************************************
+// searchMovieByName: Prompts user for name of movie and returns release date
+//      if found in the array
+//
+// Movie movies[] - movies is the array of movie structs.
+// int size - the size of the array. set by readMovies.
+//***********************************************************
 
 void searchMovieByName(Movie movies[], int size) {
 
@@ -220,6 +284,16 @@ void searchMovieByName(Movie movies[], int size) {
     }
 }
 
+//***********************************************************
+// findMovieByID: Finds the index of the movie with given name.
+//
+// Movie movies[] - movies is the array of movie structs.
+// int SIZE - the size of the array. set by readMovies.
+// string targetname - the name of the movie that is to be searched.
+//
+// returns: int. index of the array with given name. returns -1 if no result.
+//***********************************************************
+
 void findMovieByID(Movie movies[], int size) {
 
     int targetIndex = -1, targetID = 0;
@@ -235,6 +309,7 @@ void findMovieByID(Movie movies[], int size) {
     
     }
 
+    // if movies exists, print
     if (targetIndex != -1) {
 
         cout << left << showpoint << setprecision(2)
@@ -252,11 +327,22 @@ void findMovieByID(Movie movies[], int size) {
             << endl;
         
     }
+    
+    // no movie found
     if (targetIndex == -1) {
         cout << "No movie found with id: " << targetID << endl;
     }
 
 }
+
+//***********************************************************
+// sortById: Sorts an array of Movie by ID. Smallest to greatest.
+//
+// Movie movies[] - movies is the array of movie structs.
+// int SIZE - the size of the array. set by readMovies.
+//
+// returns: int. index of the array with given name. returns -1 if no result.
+//***********************************************************
 
 void sortById(Movie movies[], const int SIZE) {
     for (int i = 0; i < SIZE; i++) {
