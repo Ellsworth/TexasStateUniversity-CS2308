@@ -1,39 +1,74 @@
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 
-int linearSearch(int, int[], int);
-void swapIndexPos(int, int, int[]);
+void swap(int*, int*);
 void printArray(int[], int);
-void bubbleSort(int[], int);
+void sortArray(int[], int);
+int linearSearch(int, int[], int);
 
 int main() {
-
-    /**
-    
-    int size;
+    int target, size;
 
     cin >> size;
 
-    int arr[size];
+    int array[size];
 
     for (int i = 0; i < size; i++) {
-        cin >> arr[i];
+
+        cin >> array[i];
+
     }
-    **/
 
-   int size = 5;
-   int arr[] = {5, 7, 4, 2, 1};
+    cin >> target;
 
-   printArray(arr, size);
+    
 
-   cout << endl;
+    sortArray(array, size);
 
-   swapIndexPos(0, 1, arr);
-   bubbleSort(arr, size);
+    cout << linearSearch(target, array, size) << endl;
+    printArray(array, size);
+    
+    
 
-   printArray(arr, size);
 
+
+}
+
+void swap(int *x, int *y) 
+{ 
+    int buffer = *x; 
+    *x = *y; 
+    *y = buffer;
+    
+    return;
+} 
+
+void printArray(int array[], int size) {
+
+    for (int i = 0; i < size; i++) {
+        cout << array[i];
+
+        if (i < (size - 1)) cout << " ";
+    }
+
+}
+
+
+void sortArray(int array[], int size) {
+
+    for (int j = 0; j < size; j++) {
+
+        for (int i = 0; i < (size - 1); i++) {
+
+            if (array[i] > array[i + 1]) {
+                swap(array[i], array[i + 1]);
+            }
+
+        }
+
+    }
 }
 
 int linearSearch(int target, int arr[], int size) {
@@ -42,43 +77,9 @@ int linearSearch(int target, int arr[], int size) {
 
     for (int i = 0; i < size; i++) {
 
-        if (arr[i] == target) {
-            target_index = i;
-            break;
-        }
+        if (arr[i] == target) target_index = i;
     }
 
     return target_index;
-
-}
-
-void swapIndexPos(int x, int y, int arr[]) {
-    int buffer;
-
-    buffer = arr[x];
-    arr[x] = arr[y];
-    arr[y] = buffer;
-
-    return;
-
-}
-
-void printArray(int arr[], int size) {
-
-    for (int i = 0; i < size; i++) {
-        cout << i << " " << arr[i] << endl;
-    }
-
-    return;
-
-}
-
-void bubbleSort(int arr[], int size) {
-
-    for (int i = 0; i < size - 1; i++) {
-        if (arr[i] > arr[i + 1]) {
-            swapIndexPos(i, i + 1, arr);
-        }
-    }
 
 }
