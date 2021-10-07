@@ -23,6 +23,8 @@ class Country {
         Country();
         Country(string, int, int);
 
+        void display();
+
 
 };
 
@@ -38,10 +40,24 @@ Country::Country(string newName, int newAthletes, int newNumMedals) {
     numMedals = newNumMedals;
 }
 
+void Country::display() {
+
+    cout << name << " " << athletes << " " << numMedals << endl;
+
+}
+
 int main() {
 
-    Country c("Switzerland", 5, 10);
+    // : {"A", 13, 10} and {"B", 12, 14}, {"C", 1, 114} and {"D", 19, 24}
 
-    cout << c.getMedals() << endl;
+    Country a("A", 13, 10);
+    Country b("B", 12, 14);
+    Country c("C", 1, 114);
+    Country d("D", 19, 24);
 
+    a.display();
+    b.display();
+    c.display();
+    d.display();
+    
 }
