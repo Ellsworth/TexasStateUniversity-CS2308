@@ -28,3 +28,29 @@ Inventory::~Inventory() {
 ```
 
 ## Arrays of objects
+
+``` cpp
+
+class LunchBox {
+    Public:
+        LunchBox();
+};
+```
+
+``` cpp
+int main() {
+    
+    LunchBox studentLunch[25];
+
+}
+
+```
+
+* As with any other array, each element is independant. The constructor applies to each element independantly.
+* LunchBox() gets called for each element of the array. Therefor, LunchBox will be called 25 times.
+
+## Initiallizer list
+
+``` cpp
+LunchBox studentLunch = {studentLunch(2), studentLunch(), studentLunch(9.5)}
+```
