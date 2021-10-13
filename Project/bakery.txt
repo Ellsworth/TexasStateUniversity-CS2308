@@ -1,0 +1,79 @@
+5
+3
+
+1
+Cream cake
+25
+8.9
+
+2
+Cream puff
+51
+2.9
+
+59
+agave agutuk
+581
+2.89874
+
+1
+Velvet cupcake
+25
+9.9
+
+2
+Pretzel
+15
+8.9
+
+93
+applesauce apricots
+693
+3.707763
+
+
+1
+Tiramisu
+2
+10
+
+2
+Wafer biscuits
+18
+9.3
+
+3
+arrowhead artichokes
+18
+2.4
+
+
+1
+Qasadia
+3
+10
+
+2
+Cheese ball
+3
+9.3
+
+98
+balsam-pear bananas
+627
+3.47454
+
+
+54
+bits blackberries
+659
+3.63941
+69
+blackberry blend
+291
+6.44086
+97
+blueberries bockwurst
+931
+0.801793
+
