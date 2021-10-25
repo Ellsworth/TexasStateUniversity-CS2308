@@ -43,22 +43,19 @@ int main() {
     ifstream in;
     in.open("bakery.txt");
 
-    int userInput = 5;
-
+    int userInput = -1;
     int numBakeries = 0, numItems = 0;
 
     readBakeryMetadata(in, numBakeries, numItems);
 
     Bakery** arr = allocateMemory(numBakeries, numItems);
 
-
     readBakery(in, arr, numBakeries, numItems);
-
-    displayBakeryItems(arr, numBakeries, numItems);
-
-    
     
     while (userInput != 5) {
+
+        displayBakeryItems(arr, numBakeries, numItems);
+        displayMenu();
 
         cin >> userInput;
 
