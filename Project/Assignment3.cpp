@@ -162,6 +162,9 @@ void displayBakery(const Bakery& bakery){
 }
 
 void displayBakeryItems(Bakery** bakeries, int N, int M) {
+
+    displayHeader();
+
     for (int i = 0; i < N; i++) {
 
         for (int j = 0; j < M; j++) {
@@ -169,5 +172,7 @@ void displayBakeryItems(Bakery** bakeries, int N, int M) {
             displayBakery(bakeries[i][j]);
 
         }
+
+        cout << "--------" << endl;
     }
 }
