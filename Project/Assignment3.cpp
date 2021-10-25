@@ -50,14 +50,13 @@ int main() {
     readBakeryMetadata(in, numBakeries, numItems);
 
     Bakery** arr = allocateMemory(numBakeries, numItems);
-    
 
-    cout << numBakeries << " " << numItems << endl;
 
     readBakery(in, arr, numBakeries, numItems);
 
-    //displayBakeryItems(arr, numBakeries, numItems);
+    displayBakeryItems(arr, numBakeries, numItems);
 
+    
     
     while (userInput != 5) {
 
@@ -102,19 +101,12 @@ void readBakery(ifstream& in,Bakery **bakeries, int numBakeries, int numItems) {
 
     while(getline(in,blankline)) {
 
-        if(!blankline.size());//cout << "BREAK" << endl;
+        if(!blankline.size());
         else {
             bakeries[currentBakery][currentItem].id = stoi(blankline);
             getline(in, bakeries[currentBakery][currentItem].name);
             in >> bakeries[currentBakery][currentItem].quantity;
             in >> bakeries[currentBakery][currentItem].price;
-
-            cout << "Bakery " << currentBakery + 1 << "/" << numBakeries << " Item " << currentItem + 1 << "/" << numItems << endl;
-
-            cout << "ID       : " << bakeries[currentBakery][currentItem].id << endl;
-            cout << "Name     : " << bakeries[currentBakery][currentItem].name << endl;
-            cout << "Quantity : " << bakeries[currentBakery][currentItem].quantity << endl;
-            cout << "Price    : " << bakeries[currentBakery][currentItem].price << endl;
 
             currentItem++;
         }
@@ -160,25 +152,6 @@ void releaseMemory(Bakery** arr, int N, int M) {
     delete [] arr;
 }
 
-/**
-
-void displayBakeryItems(Bakery bakeries, int N, int M) {
-
-        for (int i = 0; i < N; i++) { // loop for every bakery
-
-        for (int j = 0; j < M; j++) { // loop for every item
-
-            
-
-
-        }
-
-    }
-
-}
-**/
-
-
 void displayBakery(const Bakery& bakery){
     cout << left
          << setw(3) << bakery.id
@@ -186,4 +159,15 @@ void displayBakery(const Bakery& bakery){
          << setw(12) << bakery.quantity
          << fixed << setprecision(1) << bakery.price
          << endl;
+}
+
+void displayBakeryItems(Bakery** bakeries, int N, int M) {
+    for (int i = 0; i < N; i++) {
+
+        for (int j = 0; j < M; j++) {
+
+            displayBakery(bakeries[i][j]);
+
+        }
+    }
 }
