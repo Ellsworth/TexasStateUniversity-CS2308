@@ -63,16 +63,23 @@ int main() {
 
         switch (userInput) {
             case 1:
-                displayBakeryItems(arr, numBakeries, numItems);
+            {
+
+                cout << "SORT BY ID" << endl;
+
+                for (int k = 0; k++; k < numBakeries) {
+                    cout << "SORT BAKERY ID " << k << endl;
+                    sortById(arr[k], numItems);
+                }
+
                 break;
+            }
 
             case 2:
                 
                 for (int i = 0; i < numBakeries; i++) {
                     sortByQuantityPrice(arr[i], numItems);
                 }
-
-                displayBakeryItems(arr, numBakeries, numItems);
 
                 break;
             case 3:
@@ -81,10 +88,14 @@ int main() {
                 break;
             case 4:
                 checkOutItem(arr, numItems);
-                displayBakeryItems(arr, numBakeries, numItems);
+                
                 break;
             case 5:
                 break;
+        }
+
+        if (userInput != 3 && userInput != 5) {
+            displayBakeryItems(arr, numBakeries, numItems);
         }
 
     }
@@ -126,6 +137,23 @@ int searchMax(Bakery** bakeries, int N, int M) {
     cout << "Product needs attention: " << bakeries[maxN][maxM].name << " " << bakeries[maxN][maxM].quantity << " in bakery " << N << endl;
 
     return 0;
+}
+
+void sortById(Bakery *bakeries, const int SIZE) {
+
+    for (int i = 0; i < SIZE; i++) {
+
+        cout << bakeries[i].id << endl;
+        
+        if (bakeries[i].id > bakeries[i + 1].id) {
+
+            cout << "SWAP" << bakeries[i].name << " AND " << bakeries[i + 1].id << endl;
+
+            swap(bakeries[i], bakeries[i + 1]);
+        }
+
+    }
+
 }
 
 void linearSearchAndUpdate(Bakery* bakery, string productName, int M) {
