@@ -27,6 +27,7 @@ void displayMenu();
 void displayBakeryItems(Bakery **bakeries, int N, int M);
 void displayHeader();
 int searchMax(Bakery** bakeries, int N, int M);
+void linearSearchAndUpdate(Bakery* bakery, string productName, int M); 
 void sortById(Bakery *bakeries, const int SIZE);
 void sortByQuantityPrice(Bakery *bakeries, const int SIZE);
 void displayBakery(const Bakery& bakery);
@@ -118,6 +119,28 @@ int searchMax(Bakery** bakeries, int N, int M) {
     cout << "Product needs attention: " << bakeries[maxN][maxM].name << " " << bakeries[maxN][maxM].quantity << " in bakery " << N << endl;
 
     return 0;
+}
+
+void linearSearchAndUpdate(Bakery* bakery, string productName, int M) {
+
+    bool foundItem = false;
+
+    for (int i = 0; i < M; i++) {
+
+        if (bakery[i].name == productName && bakery[i].quantity > 0) {
+
+            cout << "Successfully checked out " << productName << endl;
+            bakery[i].quantity--;
+
+            foundItem = true;
+
+        }
+
+    }
+
+    if (!foundItem) {
+        cout << "The item " << productName << " does not exist" << endl;
+    } 
 }
 
 void displayMenu(){
