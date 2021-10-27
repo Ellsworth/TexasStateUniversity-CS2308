@@ -36,6 +36,7 @@ Bakery** allocateMemory(int N, int M);
 
 // custom constructors
 void readBakeryMetadata(ifstream& in, int &numBakeries, int &numItems);
+void checkOutItem(Bakery** bakery, int numItems);
 
 int main() {
 
@@ -71,10 +72,16 @@ int main() {
                     sortByQuantityPrice(arr[i], numItems);
                 }
 
+                displayBakeryItems(arr, numBakeries, numItems);
+
                 break;
             case 3:
 
                 result = searchMax(arr, numBakeries, numItems);
+                break;
+            case 4:
+                checkOutItem(arr, numItems);
+                displayBakeryItems(arr, numBakeries, numItems);
                 break;
             case 5:
                 break;
@@ -259,3 +266,21 @@ void displayBakeryItems(Bakery** bakeries, int N, int M) {
     }
 }
 
+void checkOutItem(Bakery** bakery, int numItems) {
+
+    int bakeryId;
+    string productName;
+
+    cout << "Enter bakery ID:" << endl;
+
+    cin >> bakeryId;
+    bakeryId--;
+
+    cout << "Enter product name:" << endl;
+    cin.ignore();
+    getline(cin, productName);
+
+    linearSearchAndUpdate(bakery[bakeryId], productName, numItems);
+
+}
+ 
