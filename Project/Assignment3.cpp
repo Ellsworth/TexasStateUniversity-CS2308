@@ -63,24 +63,18 @@ int main() {
 
         switch (userInput) {
             case 1:
-
                 sortById(arr, numBakeries, numItems);
                 break;
-
             case 2:
-                
                 for (int i = 0; i < numBakeries; i++) {
                     sortByQuantityPrice(arr[i], numItems);
                 }
-
                 break;
             case 3:
-
                 result = searchMax(arr, numBakeries, numItems);
                 break;
             case 4:
                 checkOutItem(arr, numItems);
-                
                 break;
             case 5:
                 break;
@@ -93,8 +87,6 @@ int main() {
     }
 
     releaseMemory(arr, numBakeries, numItems);
-
-
 
 }
 
