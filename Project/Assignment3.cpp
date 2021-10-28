@@ -5,6 +5,11 @@
 // Date: October 13. 2021
 // Assignment Number: 3
 // CS 2308 Fall 2021
+//
+// This program serves an inventory management for a bakeries. It supports 
+// managing the inventory for multiple locations. The program uses a 2D 
+// dynamically allocated array of structs. Therefor the system can hold as many
+// items as needed. (Assuming there is enough RAM to go around.)
 
 #include <iostream>
 #include <iomanip>
