@@ -95,6 +95,10 @@ int main() {
 
 }
 
+//***********************************************************
+// displayHeader: Used for displaying the header for displayBakeryItems.
+//***********************************************************
+
 void displayHeader() {
     cout << left
          << setw(3) << "ID"
@@ -103,6 +107,15 @@ void displayHeader() {
          << "Price"
          << endl;
 }
+
+//***********************************************************
+// searchMax: Finds the item with the max quantity.
+//
+// Bakery** bakeries: 2D array of Bakery struct
+// N: number of bakeries
+// M: number of items per bakery
+// returns: 0
+//***********************************************************
 
 int searchMax(Bakery** bakeries, int N, int M) {
 
@@ -154,6 +167,15 @@ void sortById(Bakery **bakeries, int numBakeries, int numItems) {
 
 }
 
+//***********************************************************
+// linearSearchAndUpdate: Finds an item in a 1D array. If found and enough
+//      stock, remove one from quantity and print error or success message.
+//
+// Bakery* bakeries: 1D array of Bakery struct
+// productName: name to be searched
+// M: number of items per bakery
+//***********************************************************
+
 
 void linearSearchAndUpdate(Bakery* bakery, string productName, int M) {
 
@@ -177,6 +199,10 @@ void linearSearchAndUpdate(Bakery* bakery, string productName, int M) {
     } 
 }
 
+//***********************************************************
+// displayMenu: prints the menu.
+//***********************************************************
+
 void displayMenu(){
     cout << "\nMenu\n"
          << "1. Display bakeries sorted by id\n"
@@ -186,6 +212,15 @@ void displayMenu(){
          << "5. Quit the Program\n"
          << "Enter your choice:\n";
 }
+
+//***********************************************************
+// readBakery: reads data from fstream and fills up a 2D array of bakery struct.
+//
+// in: ifstream file input
+// bakeries: 2D array of Bakery struct
+// numBakeries: number of bakeries
+// numItems: number of items per bakery
+//***********************************************************
 
 void readBakery(ifstream& in,Bakery **bakeries, int numBakeries, int numItems) {
 
@@ -214,6 +249,14 @@ void readBakery(ifstream& in,Bakery **bakeries, int numBakeries, int numItems) {
 
 }
 
+//***********************************************************
+// readBakeryMetadata: reads first two lines from fstream 
+//
+// in: ifstream file input
+// numBakeries: number of bakeries
+// numItems: number of items per bakery
+//***********************************************************
+
 void readBakeryMetadata(ifstream& in, int &numBakeries, int &numItems) {
 
     string blankline;
@@ -223,6 +266,15 @@ void readBakeryMetadata(ifstream& in, int &numBakeries, int &numItems) {
 
     return;
 }
+
+//***********************************************************
+// allocateMemory: allocate memory and create a 2D array of bakery struct. 
+//
+// N: number of bakeries
+// M: number of items per bakery
+//
+// returns: created 2d dynamic bakery array
+//***********************************************************
 
 Bakery** allocateMemory(int N, int M) {
 
@@ -236,6 +288,17 @@ Bakery** allocateMemory(int N, int M) {
 
 }
 
+//***********************************************************
+// releaseMemory: destroy 2D array of bakery struct.
+//
+// arr: dynamic 2D array of bakery struct.
+// N: number of bakeries
+// M: number of items per bakery
+//
+// returns: created 2d dynamic bakery array
+//***********************************************************
+
+
 void releaseMemory(Bakery** arr, int N, int M) {
 
     for(int i = 0; i < N; i++) {
@@ -243,6 +306,14 @@ void releaseMemory(Bakery** arr, int N, int M) {
     }
     delete [] arr;
 }
+
+//***********************************************************
+// sortByQuantityPrice: sorts 1D array of bakery struct by quantity, then price.
+//
+// bakeries: 1D array of bakery struct
+//
+// SIZE: number of items per bakery
+//***********************************************************
 
 void sortByQuantityPrice(Bakery *bakeries, const int SIZE) {
 
@@ -253,7 +324,8 @@ void sortByQuantityPrice(Bakery *bakeries, const int SIZE) {
             swap(bakeries[i], bakeries[i + 1]);
 
         }
-
+        
+        // if same quantity, compare their price
         if (bakeries[i].quantity == bakeries[i + 1].quantity) {
             
             if (bakeries[i].price < bakeries[i + 1].price) {
@@ -268,6 +340,12 @@ void sortByQuantityPrice(Bakery *bakeries, const int SIZE) {
 
 }
 
+//***********************************************************
+// displayBakery: prints certain attributes of bakery struct.
+//
+// bakery: bakery struct
+//***********************************************************
+
 void displayBakery(const Bakery& bakery){
     cout << left
          << setw(3) << bakery.id
@@ -276,6 +354,14 @@ void displayBakery(const Bakery& bakery){
          << fixed << setprecision(1) << bakery.price
          << endl;
 }
+
+//***********************************************************
+// displayBakeryItems: prints all items stored in 2D array of Bakery struct.
+//
+// bakeries: dynamic 2D array of bakery struct.
+// N: number of bakeries
+// M: number of items per bakery
+//***********************************************************
 
 void displayBakeryItems(Bakery** bakeries, int N, int M) {
 
@@ -292,6 +378,14 @@ void displayBakeryItems(Bakery** bakeries, int N, int M) {
         cout << "--------" << endl;
     }
 }
+
+//***********************************************************
+// checkOutItem: Asks user for bakery ID and item name and passes that
+//      info to linearSearchAndUpdate.
+//
+// bakery: dynamic 2D array of bakery struct.
+// numItems: number of items per bakery
+//***********************************************************
 
 void checkOutItem(Bakery** bakery, int numItems) {
 
