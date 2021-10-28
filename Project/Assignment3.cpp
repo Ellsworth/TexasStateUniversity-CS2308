@@ -48,7 +48,7 @@ int main() {
     ifstream in;
     in.open("bakery.txt");
 
-    int userInput = -1, result;
+    int userInput = -1;
     int numBakeries = 0, numItems = 0;
 
     readBakeryMetadata(in, numBakeries, numItems);
@@ -76,7 +76,7 @@ int main() {
                 }
                 break;
             case 3:
-                result = searchMax(arr, numBakeries, numItems);
+                searchMax(arr, numBakeries, numItems);
                 break;
             case 4:
                 checkOutItem(arr, numItems);
@@ -258,8 +258,6 @@ void readBakery(ifstream& in,Bakery **bakeries, int numBakeries, int numItems) {
 //***********************************************************
 
 void readBakeryMetadata(ifstream& in, int &numBakeries, int &numItems) {
-
-    string blankline;
 
     in >> numBakeries;
     in >> numItems;
