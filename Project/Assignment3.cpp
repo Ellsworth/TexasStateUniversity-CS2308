@@ -118,10 +118,20 @@ int searchMax(Bakery** bakeries, int N, int M) {
 
     }
 
-    cout << "Product needs attention: " << bakeries[maxN][maxM].name << " " << bakeries[maxN][maxM].quantity << " in bakery " << N << endl;
+    cout << "Product needs attention: " << bakeries[maxN][maxM].name << " ";
+    cout << bakeries[maxN][maxM].quantity << " in bakery " << N << endl;
 
     return 0;
 }
+
+//***********************************************************
+// sortById: Sorts a 2D array of bakery structs by ID
+//
+// Bakery** bakeries: 2D array of Bakery struct
+// numBakeries: number of bakeries
+// numItems: number of items per bakery
+//***********************************************************
+
 void sortById(Bakery **bakeries, int numBakeries, int numItems) {
 
     for (int i = 0; i < numBakeries; i++) {
